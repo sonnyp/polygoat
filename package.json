@@ -1,6 +1,6 @@
 {
   "name": "polygoat",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Make a JavaScript function support both promise and callback styles.",
   "homepage": "https://github.com/sonnyp/polygoat",
   "bugs": "https://github.com/sonnyp/polygoat/issues",
