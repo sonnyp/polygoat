@@ -1,7 +1,7 @@
 (function () {
   'use strict'
 
-  module.exports = function polygoat (fn, cb, promise) {
+  function polygoat (fn, cb, promise) {
     if (cb) {
       fn(function (err, res) {
         cb(err, res)
@@ -18,5 +18,11 @@
         })
       })
     }
+  }
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = polygoat
+  } else {
+    window.polygoat = polygoat
   }
 }())

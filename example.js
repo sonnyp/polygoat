@@ -5,7 +5,7 @@
 
   // Node.js, browserify, ...
   if (typeof module !== 'undefined' && module.exports) {
-    pg = require('.') // require('polygoat') for you
+    pg = require('./index') // require('polygoat') for you
   // browsers
   } else {
     pg = window.polygoat
