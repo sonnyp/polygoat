@@ -1,7 +1,7 @@
 {
   "name": "polygoat",
   "version": "1.0.0",
-  "description": "Make your JavaScript API support both promise and callback styles.",
+  "description": "Make a JavaScript function support both promise and callback styles.",
   "homepage": "https://github.com/sonnyp/polygoat",
   "bugs": "https://github.com/sonnyp/polygoat/issues",
   "license": "ISC",

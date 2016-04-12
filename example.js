@@ -14,7 +14,7 @@
   //
   // without polygoat, callback style only
   //
-  function delay(time, cb) {
+  function delay (time, cb) {
     setTimeout(cb, time)
   }
 
@@ -25,8 +25,8 @@
   //
   // with polygoat, callback and promise styles
   //
-  function delay(time, cb) {
-    return pg(function(done) {
+  function delay (time, cb) { // eslint-disable-line
+    return pg(function (done) {
       setTimeout(done, time)
     }, cb)
   }
@@ -35,8 +35,7 @@
     console.log('with polygoat, callback style')
   })
 
-  delay(1000).then(function() {
+  delay(1000).then(function () {
     console.log('with polygoat, promise style')
   })
-
 }())
