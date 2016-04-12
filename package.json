@@ -1,0 +1,21 @@
+{
+  "name": "polygoat",
+  "version": "1.0.0",
+  "description": "Make your JavaScript API support both promise and callback styles.",
+  "homepage": "https://github.com/sonnyp/polygoat",
+  "bugs": "https://github.com/sonnyp/polygoat/issues",
+  "license": "ISC",
+  "author": "Sonny Piers <sonny@fastmail.net>",
+  "keywords": [
+    "async",
+    "promise",
+    "callback"
+  ],
+  "scripts": {
+    "preversion": "npm test",
+    "lint": "standard",
+    "unit": "node test.js",
+    "test": "npm run unit && npm run lint"
+  },
+  "repository": "github:sonnyp/polygoat"
+}
