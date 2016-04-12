@@ -31,6 +31,7 @@ var pg = window.polygoat
 # Usage
 
 ```js
+// wrap and expose your asynchronous function with polygoat
 function myFunction (some, arg, callback) {
   pg(function (done) {
     doSomethingAsync(done)
@@ -42,7 +43,17 @@ myFunction('foo', 'bar').then(console.log)
 
 // or callback style
 myFunction('foo', 'bar', console.log)
+
+// you can also pass the Promise implementation you wish polygoat to use
+var bluebird = require('bluebird')
+
+function myFunction (some, arg, callback) {
+  pg(function (done) {
+    doSomethingAsync(done)
+  }, callback, bluebird)
+}
 ```
+
 
 
 # Example

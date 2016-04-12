@@ -17,5 +17,8 @@
     "unit": "node test.js",
     "test": "npm run unit && npm run lint"
   },
-  "repository": "github:sonnyp/polygoat"
+  "repository": "github:sonnyp/polygoat",
+  "devDependencies": {
+    "bluebird": "^3.3.4"
+  }
 }

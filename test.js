@@ -2,6 +2,7 @@
 
 var pg = require('./index')
 var assert = require('assert')
+var bluebird = require('bluebird')
 
 function testResolve (some, arg, cb) {
   return pg(function (done) {
@@ -48,3 +49,11 @@ if (global.Promise) {
     assert.strictEqual(err, 'error!!')
   })
 }
+
+function testThirdPartyPromise (cb) {
+  return pg(function (done) {
+    setTimeout(done, 10)
+  }, cb, bluebird)
+}
+
+assert(testThirdPartyPromise() instanceof bluebird)
