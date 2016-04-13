@@ -25,4 +25,4 @@
   } else {
     window.polygoat = polygoat
   }
-}(global || this))
+}(typeof global !== 'undefined' ? global : this))
