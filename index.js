@@ -1,13 +1,13 @@
-(function () {
+;(function (global) {
   'use strict'
 
-  function polygoat (fn, cb, promise) {
+  function polygoat (fn, cb, Promise) {
     if (cb) {
       fn(function (err, res) {
         cb(err, res)
       })
     } else {
-      var P = promise || Promise
+      var P = Promise || global.Promise
       return new P(function (resolve, reject) {
         fn(function (err, res) {
           if (err !== null && err !== undefined) {
@@ -25,4 +25,4 @@
   } else {
     window.polygoat = polygoat
   }
-}())
+}(global || this))

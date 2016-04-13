@@ -54,8 +54,6 @@ function myFunction (some, arg, callback) {
 }
 ```
 
-
-
 # Example
 
 See [example.js](https://github.com/sonnyp/polygoat/blob/master/example.js)
