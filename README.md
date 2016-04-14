@@ -8,7 +8,9 @@ Make a JavaScript function support both promise and callback styles.
 [![Build Status](https://img.shields.io/travis/sonnyp/polygoat/master.svg?style=flat-square)](https://travis-ci.org/sonnyp/polygoat/branches)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
 
-This is great if you want to offer your users the choice between the two. It is also an elegant way to support older platforms without Promise support and let the users decide if they want to add a Promise polyfill.
+While you can use polygoat to promsify/thenify any callback function, it is most useful to library authors. Use it to let the users/consumers of your API decide if they want to use callbacks or promises.
+
+It is also an elegant way to support platforms without promise support and let the users decide if they want to load a polyfill.
 
 # Getting started
 
