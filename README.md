@@ -54,6 +54,8 @@ function myFunction (callback) {
     doSomethingAsync(done)
   }, callback, bluebird)
 }
+
+myFunction() instanceof bluebird // true
 ```
 
 # Example
