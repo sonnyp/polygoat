@@ -10,9 +10,9 @@ Make a JavaScript function support both promise and callback styles.
 
 polygoat is not so much about turning a callback function into a promise function, it's about designing an API/library that supports both.
 
-While you can use polygoat to promsify/thenify any callback function, it is most useful to library authors. Use it to let the users/consumers of your API decide if they want to use callbacks or promises.
+While you can use polygoat to promsify/thenify any callback function, it is most useful to library authors. Let your API consumers decide if they want to use callbacks or promises or both.
 
-It is also an elegant way to support platforms without promise support and let the users decide if they want to load a polyfill.
+Additionaly, it is an elegant way to support platforms without promise support and let the users decide if they want to load a polyfill (and which one).
 
 # Getting started
 
