@@ -35,7 +35,7 @@ var pg = window.polygoat
 ```js
 // wrap and expose your asynchronous function with polygoat
 function myFunction (some, arg, callback) {
-  pg(function (done) {
+  return pg(function (done) {
     doSomethingAsync(some, arg, done)
   }, callback)
 }
@@ -50,7 +50,7 @@ myFunction('foo', 'bar', console.log)
 var bluebird = require('bluebird')
 
 function myFunction (callback) {
-  pg(function (done) {
+  return pg(function (done) {
     doSomethingAsync(done)
   }, callback, bluebird)
 }
