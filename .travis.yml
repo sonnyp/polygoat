@@ -10,3 +10,7 @@ node_js:
 
 before_script:
   - npm install -g standard
+
+script:
+  - npm test
+  - npm run benchmark

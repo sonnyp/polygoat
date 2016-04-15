@@ -66,6 +66,12 @@ myFunction() instanceof bluebird // true
 
 See [example.js](https://github.com/sonnyp/polygoat/blob/master/example.js)
 
+# Benchmark
+
+`npm run benchmark`
+
+See [benchmark.js](https://github.com/sonnyp/polygoat/blob/master/benchmark.js))
+
 # Test
 
 ```
