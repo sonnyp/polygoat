@@ -70,7 +70,7 @@ See [example.js](https://github.com/sonnyp/polygoat/blob/master/example.js)
 
 `npm run benchmark`
 
-See [benchmark.js](https://github.com/sonnyp/polygoat/blob/master/benchmark.js))
+See [benchmark.js](https://github.com/sonnyp/polygoat/blob/master/benchmark.js) and [my results](https://github.com/sonnyp/polygoat/pull/4#issue-148563973)
 
 # Test
 
