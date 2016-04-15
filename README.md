@@ -6,7 +6,7 @@ polygoat
 
 ![logo](./logo.png)
 
-polygot is a tool to make functions support both callback and promise style.
+polygoat is a tool to make functions support both callback and promise style.
 
 * very small, < 30 lines of code
 * no promise support/polyfill required
