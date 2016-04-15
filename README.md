@@ -1,14 +1,12 @@
 polygoat
 ========
 
-![logo](./logo.png)
-
-Make a JavaScript function that support both promise and callback.
-
 [![Build Status](https://img.shields.io/travis/sonnyp/polygoat/master.svg?style=flat-square)](https://travis-ci.org/sonnyp/polygoat/branches)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
 
-polygot helps you make functions that support both callback and promise style.
+![logo](./logo.png)
+
+polygot is a tool to make functions support both callback and promise style.
 
 * very small, < 30 lines of code
 * no promise support/polyfill required
@@ -39,7 +37,7 @@ var pg = window.polygoat
 # Usage
 
 ```js
-// wrap and expose the asynchronous function with polygoat
+// wrap an asynchronous function with polygoat
 function hybridFunction (path, callback) {
   return pg(function (done) {
     fs.readdir(path, done)
@@ -61,7 +59,7 @@ function hybridFunction (path, callback) {
   }, callback, bluebird)
 }
 
-myFunction() instanceof bluebird // true
+hybridFunction() instanceof bluebird // true
 ```
 
 # Example
