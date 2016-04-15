@@ -12,6 +12,7 @@
     "callback"
   ],
   "scripts": {
+    "benchmark": "node benchmark.js",
     "preversion": "npm test",
     "lint": "standard",
     "unit": "node test.js",
@@ -19,6 +20,7 @@
   },
   "repository": "github:sonnyp/polygoat",
   "devDependencies": {
+    "benchmark": "^2.1.0",
     "bluebird": "^3.3.4"
   }
 }
