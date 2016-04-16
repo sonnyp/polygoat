@@ -57,3 +57,31 @@ function testThirdPartyPromise (cb) {
 }
 
 assert(testThirdPartyPromise() instanceof bluebird)
+
+//
+// exception handling
+//
+function exceptionHandling (cb) {
+  return pg(function (done) {
+    throw 'foo' // eslint-disable-line
+  }, cb)
+}
+
+// with promise
+if (global.Promise) {
+  exceptionHandling().then(
+    function (res) {
+      assert.fail('promise should not have fulfilled')
+    },
+    function (err) {
+      assert.equal(err, 'foo')
+    }
+  )
+}
+
+// with callback
+assert.throws(function () {
+  exceptionHandling(function () {
+    assert.fail('callback should not have been called')
+  })
+}, /foo/)
