@@ -68,9 +68,7 @@ See [example.js](https://github.com/sonnyp/polygoat/blob/master/example.js)
 
 # Benchmark
 
-`npm run benchmark`
-
-See [benchmark.js](https://github.com/sonnyp/polygoat/blob/master/benchmark.js) and [my results](https://github.com/sonnyp/polygoat/pull/4#issue-148563973)
+See [benchmark](https://github.com/sonnyp/polygoat/tree/master/benchmark) and [my results](https://github.com/sonnyp/polygoat/pull/7#issue-148967639)
 
 # Test
 
