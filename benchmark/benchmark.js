@@ -15,44 +15,44 @@
     bluebird = window.Promise.noConflict()
   }
 
-  function polygotDelay (time, cb) {
+  function notAsync (cb) {
+    cb()
+  }
+
+  function polygotFun (cb) {
     return pg(function (done) {
-      setTimeout(cb, time)
+      notAsync(done)
     }, cb)
   }
 
-  function promiseDelay (time) {
+  function promiseFun () {
     return new Promise(function (resolve, reject) {
-      setTimeout(resolve, time)
+      notAsync(resolve)
     })
   }
 
-  function callbackDelay (time, cb) {
-    setTimeout(function () {
-      cb()
-    }, time)
+  function callbackFun (cb) {
+    notAsync(cb)
   }
 
-  var promisified = bluebird.promisify(callbackDelay)
-
-  var time = 10
+  var promisified = bluebird.promisify(callbackFun)
 
   var callSuite = new benchmark.Suite('call time')
   callSuite
   .add('polygoat promise', function () {
-    polygotDelay(time).then(function () {})
+    polygotFun().then(function () {})
   })
   .add('polygoat callback', function () {
-    polygotDelay(time, function () {})
+    polygotFun(function () {})
   })
   .add('plain promise', function () {
-    promiseDelay(time).then(function () {})
+    promiseFun().then(function () {})
   })
   .add('plain callback', function () {
-    callbackDelay(time, function () {})
+    callbackFun(function () {})
   })
   .add('bluebird promisified (eval on Node.js, closure on browser)', function () {
-    promisified(time).then(function () {})
+    promisified().then(function () {})
   })
   .on('cycle', function (event) {
     console.log(String(event.target))
@@ -63,27 +63,25 @@
 
   var creationSuite = new benchmark.Suite('function creation')
   creationSuite.add('polygoat', function () {
-    return function (time, cb) {
+    return function (cb) {
       return pg(function (done) {
-        setTimeout(cb, time)
+        notAsync(done)
       }, cb)
     }
   })
   .add('callback', function () {
-    return function (time, cb) {
-      setTimeout(function () {
-        cb()
-      }, time)
+    return function (cb) {
+      notAsync(cb)
     }
   })
   .add('promise', function () {
     return new Promise(function (resolve, reject) {
-      setTimeout(resolve, time)
+      notAsync(resolve)
     })
   })
   .add('bluebird promisify (eval on Node.js, closure on browser)', function () {
-    return bluebird.promisify(function (time, cb) {
-      setTimeout(cb, time)
+    return bluebird.promisify(function (cb) {
+      notAsync(cb)
     })
   })
   .on('cycle', function (event) {
