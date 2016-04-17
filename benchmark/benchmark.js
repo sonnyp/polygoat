@@ -37,6 +37,8 @@
 
   var promisified = bluebird.promisify(callbackFun)
 
+  var goatified = pg.goatify(callbackFun)
+
   var callSuite = new benchmark.Suite('call time')
   callSuite
   .add('polygoat promise', function () {
@@ -53,6 +55,9 @@
   })
   .add('bluebird promisified (eval on Node.js, closure on browser)', function () {
     promisified().then(function () {})
+  })
+  .add('polygoat goatified', function () {
+    goatified().then(function () {})
   })
   .on('cycle', function (event) {
     console.log(String(event.target))
@@ -81,6 +86,11 @@
   })
   .add('bluebird promisify (eval on Node.js, closure on browser)', function () {
     return bluebird.promisify(function (cb) {
+      notAsync(cb)
+    })
+  })
+  .add('polygoat goatify', function () {
+    return pg.goatify(function (cb) {
       notAsync(cb)
     })
   })

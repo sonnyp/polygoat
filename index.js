@@ -20,6 +20,19 @@
     }
   }
 
+  function goatify (fn) {
+    return function () {
+      var args = Array.prototype.slice.call(arguments)
+      var callback = typeof args[args.length - 1] === 'function' ? args.pop() : null
+      return polygoat(function (done) {
+        args.push(done)
+        fn.apply(null, args)
+      }, callback)
+    }
+  }
+
+  polygoat.goatify = goatify
+
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = polygoat
   } else {
