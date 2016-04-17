@@ -31,7 +31,20 @@
     }
   }
 
+  function goatifyAll (obj) {
+    for (var k in obj) {
+      if (obj.hasOwnProperty(k)) {
+        var v = obj[k]
+        if (typeof v === 'function') { // FIXME IIRC this fails on old browsers
+          obj[k] = goatify(v)
+        }
+      }
+    }
+    return obj
+  }
+
   polygoat.goatify = goatify
+  polygoat.goatifyAll = goatifyAll
 
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = polygoat
