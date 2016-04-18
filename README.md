@@ -100,7 +100,6 @@ delay('1000').catch(function (err) {
   console.log(err.toString()) // prints "Error: 1000 is not a number"
   console.log(err.stack) // for the stack trace
 })
-
 ```
 
 # Example

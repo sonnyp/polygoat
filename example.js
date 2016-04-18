@@ -43,10 +43,12 @@
   })
 
   delay('1000', function (err) {
-    console.log(err)
+    if (err) {
+      console.error(err.stack)
+    }
   })
 
   delay('1000').catch(function (err) {
-    console.log(err)
+    console.error(err.stack)
   })
 }())
