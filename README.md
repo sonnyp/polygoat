@@ -12,7 +12,6 @@ polygoat is a tool to make functions support both callback and promise styles.
 * no promise support/polyfill required
 * simple, hack-free
 * Node.js and browsers
-* fast, see [benchmark](#benchmark)
 
 # Getting started
 
@@ -73,10 +72,6 @@ hybridReaddir() instanceof bluebird // true
 # Example
 
 See [example.js](https://github.com/sonnyp/polygoat/blob/master/example.js)
-
-# Benchmark
-
-See [benchmark](https://github.com/sonnyp/polygoat/tree/master/benchmark)
 
 # Test
 

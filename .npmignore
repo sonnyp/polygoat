@@ -5,5 +5,3 @@ test.js
 .gitignore
 .npmignore
 .travis.yml
-
-benchmark/
