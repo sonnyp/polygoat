@@ -27,6 +27,9 @@
   //
   function delay (time, cb) { // eslint-disable-line
     return pg(function (done) {
+      if (typeof time !== 'number') {
+        throw new Error(time + ' is not a number')
+      }
       setTimeout(done, time)
     }, cb)
   }
@@ -37,5 +40,15 @@
 
   delay(1000).then(function () {
     console.log('with polygoat, promise style')
+  })
+
+  delay('1000', function (err) {
+    if (err) {
+      console.error(err.stack)
+    }
+  })
+
+  delay('1000').catch(function (err) {
+    console.error(err.stack)
   })
 }())
