@@ -6,7 +6,7 @@ polygoat
 
 ![logo](./logo.png)
 
-polygoat is a tool to make functions support both callback and promise style.
+polygoat is a tool to make functions support both callback and promise styles.
 
 * very small, < 30 lines of code
 * no promise support/polyfill required
@@ -38,28 +38,36 @@ var pg = window.polygoat
 
 ```js
 // wrap an asynchronous function with polygoat
-function hybridFunction (path, callback) {
+function hybridReaddir (path, callback) {
   return pg(function (done) {
     fs.readdir(path, done)
   }, callback)
 }
 
-// hybridFunction can be used with promise style
-hybridFunction('/').then(console.log)
+// hybridReaddir can be used as a promise
+hybridReaddir('/').then(console.log)
 
-// or callback style
-hybridFunction('/', console.log)
+// or with a callback
+hybridReaddir('/', console.log)
+
+// or with async/await via Babel
+// https://ponyfoo.com/articles/understanding-javascript-async-await
+async () => {
+  console.log('listing...')
+  console.log(await hybridReaddir('/'))
+  console.log('done')
+}()
 
 // you can also pass the Promise implementation of your choice
 var bluebird = require('bluebird')
 
-function hybridFunction (path, callback) {
+function hybridReaddir (path, callback) {
   return pg(function (done) {
     fs.readdir(path, done)
   }, callback, bluebird)
 }
 
-hybridFunction() instanceof bluebird // true
+hybridReaddir() instanceof bluebird // true
 ```
 
 # Example
