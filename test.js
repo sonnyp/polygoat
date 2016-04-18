@@ -80,8 +80,6 @@ if (global.Promise) {
 }
 
 // with callback
-assert.throws(function () {
-  exceptionHandling(function () {
-    assert.fail('callback should not have been called')
-  })
-}, /foo/)
+exceptionHandling(function (err) {
+  assert.equal(err, 'foo')
+})

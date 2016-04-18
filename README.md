@@ -70,6 +70,39 @@ function hybridReaddir (path, callback) {
 hybridReaddir() instanceof bluebird // true
 ```
 
+# Error handling
+
+polygoat never throws, it passes exceptions to your callback so you don't have to.
+
+```javascript
+function delay (time, cb) {
+  // do NOT throw before return pg(...)
+  // in fact; do not write any code before
+  return pg(function (done) {
+    // inside you can throw all you want
+    if (typeof time !== 'number') {
+      throw new Error(time + ' is not a number')
+    }
+    setTimeout(done, time)
+  }, cb)
+}
+
+// delay never throws and will callback with the error instead
+delay('1000', function (err) {
+  if (err) {
+    console.log(err.toString()) // prints "Error: 1000 is not a number"
+    console.log(err.stack) // for the stack trace
+  }
+})
+
+// same when used as a promise but it shouldn't be much of a surprise
+delay('1000').catch(function (err) {
+  console.log(err.toString()) // prints "Error: 1000 is not a number"
+  console.log(err.stack) // for the stack trace
+})
+
+```
+
 # Example
 
 See [example.js](https://github.com/sonnyp/polygoat/blob/master/example.js)
