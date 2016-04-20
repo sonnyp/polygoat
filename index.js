@@ -3,9 +3,7 @@
 
   function polygoat (fn, cb, Promise) {
     if (cb) {
-      fn(function (err, res) {
-        cb(err, res)
-      })
+      fn(cb)
     } else {
       var P = Promise || global.Promise
       return new P(function (resolve, reject) {
