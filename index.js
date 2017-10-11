@@ -2,7 +2,7 @@
   'use strict'
 
   function polygoat (fn, cb, Promise) {
-    if (cb) {
+    if (typeof cb === 'function') {
       fn(cb)
     } else {
       var P = Promise || global.Promise

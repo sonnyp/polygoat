@@ -6,7 +6,7 @@ polygoat
 
 ![logo](./logo.png)
 
-polygoat is a tool to make functions support both callback and promise styles.
+polygoat is a library to make functions support both callback and promise styles.
 
 * very small, < 30 lines of code
 * no promise support/polyfill required
@@ -50,8 +50,7 @@ hybridReaddir('/').then(console.log)
 // or with a callback
 hybridReaddir('/', console.log)
 
-// or with async/await via Babel
-// https://ponyfoo.com/articles/understanding-javascript-async-await
+// or with async/await
 async () => {
   console.log('listing...')
   console.log(await hybridReaddir('/'))
