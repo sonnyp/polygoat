@@ -12,14 +12,49 @@ function testResolve (some, arg, cb) {
   }, cb)
 }
 
+function testResolveEmpty (some, arg, cb) {
+  return pg(function (done) {
+    setTimeout(function () {
+      done(null)
+    }, 10)
+  }, cb)
+}
+
+function testResolveMultiArgs (some, arg, cb) {
+  return pg(function (done) {
+    setTimeout(function () {
+      done(null, 'yeah!', 'alright!')
+    }, 10)
+  }, cb)
+}
+
 testResolve('foo', 'bar', function (err, res) {
   assert.strictEqual(err, null)
   assert.strictEqual(res, 'yeah!')
 })
 
+testResolveEmpty('foo', 'bar', function (err, res) {
+  assert.strictEqual(err, null)
+  assert.strictEqual(res, undefined)
+})
+
+testResolveMultiArgs('foo', 'bar', function (err, res1, res2) {
+  assert.strictEqual(err, null)
+  assert.strictEqual(res1, 'yeah!')
+  assert.strictEqual(res2, 'alright!')
+})
+
 if (global.Promise) {
   testResolve('foo', 'bar').then(function (res) {
     assert.strictEqual(res, 'yeah!')
+  })
+
+  testResolveEmpty('foo', 'bar').then(function (res) {
+    assert.strictEqual(res, undefined)
+  })
+
+  testResolveMultiArgs('foo', 'bar').then(function (res) {
+    assert.deepEqual(res, ['yeah!', 'alright!'])
   })
 
   testResolve('foo', 'bar').catch(function () {
@@ -43,7 +78,7 @@ testReject(function (err, res) {
 if (global.Promise) {
   testReject().then(function () {
     assert.fail('promise should not have fulfilled')
-  })
+  }).catch(function () {})
 
   testReject().catch(function (err) {
     assert.strictEqual(err, 'error!!')

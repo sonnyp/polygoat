@@ -57,6 +57,16 @@ async () => {
   console.log('done')
 }()
 
+// callbacks and promises can me resolved with more than one argument,
+// just note that in this case the promise 'then' fn will receive the arguments as a array 
+function myFn (some, arg, cb) {
+  return pg(function (done) {
+    done(null, some, arg)
+  }, cb)
+}
+myFn('result1', 'result2').then(console.log)
+// will print ['result1', 'result2']
+
 // you can also pass the Promise implementation of your choice
 var bluebird = require('bluebird')
 
