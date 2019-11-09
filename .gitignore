@@ -1,4 +1,1 @@
-!.editorconfig
-!.gitignore
-!.npmignore
-!.travis.yml
+node_modules

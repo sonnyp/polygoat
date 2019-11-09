@@ -1,9 +1,7 @@
 example.js
 test.js
-
 .editorconfig
 .gitignore
 .npmignore
 .travis.yml
-
-benchmark/
+benchmark.js
