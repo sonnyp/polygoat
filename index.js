@@ -1,26 +1,26 @@
-;(function (global) {
-  'use strict'
+(function(global) {
+  "use strict";
 
-  function polygoat (fn, cb, Promise) {
-    if (typeof cb === 'function') {
-      fn(cb)
+  function polygoat(fn, cb, Promise) {
+    if (typeof cb === "function") {
+      fn(cb);
     } else {
-      var P = Promise || global.Promise
-      return new P(function (resolve, reject) {
-        fn(function (err, res) {
+      var P = Promise || global.Promise;
+      return new P(function(resolve, reject) {
+        fn(function(err, res) {
           if (err !== null && err !== undefined) {
-            reject(err)
+            reject(err);
           } else {
-            resolve(res)
+            resolve(res);
           }
-        })
-      })
+        });
+      });
     }
   }
 
-  if (typeof module !== 'undefined' && module.exports) {
-    module.exports = polygoat
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = polygoat;
   } else {
-    window.polygoat = polygoat
+    window.polygoat = polygoat;
   }
-}(typeof global !== 'undefined' ? global : this))
+})(typeof global !== "undefined" ? global : this);
